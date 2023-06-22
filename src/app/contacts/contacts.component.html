@@ -1,0 +1,111 @@
+<a class="dropdown-item"><button type="button" class="btn btn-primary" data-bs-toggle="modal"
+        data-bs-target="#exampleModal">
+        ADD Contact
+    </button></a>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Contact Details</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="contactForm">
+                    <div class="form-group mb-3">
+                        <label for="name">First Name</label>
+                        <input type="text" formControlName="firstname" name="name" class="form-control" id="firstname"
+                            aria-describedby="emailHelp" placeholder="Enter Contact Name">
+                        <span style="color: red;" *ngIf="firstname && firstname.invalid && firstname.touched">This input
+                            field is not valid</span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="name">Last Name</label>
+                        <input type="text" formControlName="lastname" name="name" class="form-control" id="lastname"
+                            aria-describedby="emailHelp" placeholder="Enter Last Name">
+                        <span style="color: red;" *ngIf="lastname && lastname.invalid && lastname.touched">This input
+                            field is not valid</span>
+                    </div>
+
+                    <label for="group">Group</label>
+                    <select class="form-select" formControlName="group" name="group"
+                        aria-label="Default select example">
+                        <option selected>Open this select menu</option>
+                        <option *ngFor="let row of groupData ">{{row.name}}</option>
+                    </select>
+
+                    <div class="form-group mb-3">
+                        <label for="phonenumber">Phone Number</label>
+                        <input type="number" formControlName="phonenumber" name="phonenumber" class="form-control"
+                            id="phonenumber" aria-describedby="emailHelp" placeholder="Enter Phonenumber">
+                        <span style="color: red;" *ngIf="phonenumber && phonenumber.invalid && phonenumber.touched">This
+                            input field is not valid</span>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                <button (click)="postcontact()" type="button" class="btn btn-success">ADD</button>
+                <button (click)="updatecontact()" type="button" class="btn btn-success">Update</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <table class="table"> -->
+<!-- <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col"> First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Group</th>
+            <th scope="col">Phone Number</th>
+        </tr>
+    </thead> -->
+<!-- <tbody> -->
+<!-- <tr *ngFor="let row of contactData">
+            <td>{{row.id}}</td>
+            <td>{{row.firstname}}</td>
+            <td>{{row.lastname}}</td>
+            <td>{{row.group}}</td>
+            <td>{{row.phonenumber}}</td>
+            <td>
+             <button (click)="onEdit(row)" class="btn btn-warning" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">Edit</button>&nbsp;
+                <button (click)="deletecontact(row)" class="btn btn-danger">Delete</button>
+            </td>
+        </tr>
+    </tbody> -->
+<div class="container-fluid" mt-3>
+    <div class="row">
+        <div class="col-md-6  col-xl-4" *ngFor="let row of contactData">
+            <div class="card" style="width: 18rem; margin-bottom:3px ;margin-top:4px ;">
+                <div class="card-body">
+                    <img src="data:image/png;base64,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" style="width:60px" class="card-img-top" alt="card-img-top">
+                    <div>
+                        <label for="name">First Name</label>
+                        <p>{{row.firstname}}</p>
+                    </div>
+                    <div>
+                        <label for="name">Last Name</label>
+                        <p>{{row.lastname}}</p>
+                    </div>
+                    <div>
+                        <label for="name">Group</label>
+                        <p>{{row.group}}</p>
+                    </div>
+                    <div>
+                        <label for="name">Phone Number</label>
+                        <p>{{row.phonenumber}}</p>
+                    </div>
+                    <!-- <a href="#" class="btn btn-success">Call Now</a> -->
+                    <button (click)="onEdit(row)" class="btn btn-warning" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">Edit</button>&nbsp;
+                <button (click)="deletecontact(row)" class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

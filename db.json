@@ -1,0 +1,57 @@
+{
+  "group": [
+    {
+      "id": 1,
+      "name": "Family"
+    },
+    {
+      "id": 2,
+      "name": "Friends"
+    },
+    {
+      "id": 3,
+      "name": "Work"
+    },
+    {
+      "imgsrc": "",
+      "name": "colleages",
+      "id": 4
+    }
+  ],
+  "contact": [
+    {
+      "id": 1,
+      "imgsrc": "../../assets/img1.jpg",
+      "firstname": "Deepa",
+      "lastname": "pattar",
+      "group": "Family",
+      "phonenumber": 8197146545
+    },
+    {
+      "id": 2,
+      "imgsrc": "../../assets/img1.jpg",
+      "firstname": "Ranjita",
+      "lastname": "Utkoor",
+      "group": "Friends",
+      "phonenumber": 7676587752
+    },
+    {
+      "id": 3,
+      "imgsrc": "../../assets/img1.jpg",
+      "firstname": "Jnanavi",
+      "lastname": "B",
+      "group": "Work",
+      "phonenumber": 9980231582
+    },
+    {
+      "firstname": "poojashree",
+      "lastname": "badiger",
+      "group": "colleages",
+      "phonenumber": 9980231582,
+      "id": 4
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

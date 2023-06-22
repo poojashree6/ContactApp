@@ -1,0 +1,86 @@
+<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    ADD ContactGroup
+</button>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Contact Group</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="groupform">
+                    <div class="form-group mb-3">
+                        <label for="name">Contact Group</label>
+                        <input type="text" formControlName="name" name="name" class="form-control" id="name"
+                            aria-describedby="emailHelp" placeholder="Enter Group name">
+                        <span style="color:red;" *ngIf="name && name.invalid && name.touched">This input field is not
+                            valid</span>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                Active
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
+                                checked>
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Inactive
+                            </label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                <button (click)="postgroup()" type="button" class="btn btn-success">ADD</button>
+                <button (click)="updategroup()" type="button" class="btn btn-success">Update</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div class="container-fluid" mt-3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Contact Group</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let row of groupData">
+                <td>{{row.id}}</td>
+                <td>{{row.name}}</td>
+                <td>
+                    <button (click)="onEdit(row)" class="btn btn-warning" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">Edit</button>&nbsp;
+                    <button (click)="deletegroup(row)" class="btn btn-danger">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div> -->
+
+<div class="container-fluid mt-4" mt-3>
+    <div class="row">
+        <div class="col-md-6  col-xl-4" *ngFor="let row of groupData">
+            <div class="card" style="width: 18rem; margin-bottom:3px ;">
+              
+                <div class="card-body">
+                    <div>
+                        <label for="name">Contact Group</label>
+                        <p>{{row.name}}</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit!</p>
+                    </div>
+                    <button (click)="onEdit(row)" class="btn btn-warning" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">Edit</button>&nbsp;
+                    <button (click)="deletegroup(row)" class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

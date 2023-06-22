@@ -1,0 +1,26 @@
+<div class="container-fluid" mt-3>
+    <div class="row">
+        <div class="col-md-6  col-xl-4" *ngFor="let row of contactData">
+            <div class="card" style="width: 18rem; margin-top: 4px;">
+                <div class="card-body">
+                    <div>
+                        <label for="name">First Name</label>
+                        <p>{{row.firstname}}</p>
+                    </div>
+                    <div>
+                        <label for="name">Last Name</label>
+                        <p>{{row.lastname}}</p>
+                    </div>
+                    <div>
+                        <label for="name">Group</label>
+                        <p>{{row.group}}</p>
+                    </div>
+                    <div>
+                        <label for="name">Phone Number</label>
+                        <p>{{row.phonenumber}}</p>
+                    </div>
+                </div>
+            </div>
+    
+    </div>
+    
